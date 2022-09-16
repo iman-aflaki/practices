@@ -1,11 +1,11 @@
 import math
-def ishappy(num):
-    past = set()
-    while num != 1:
-        num = sum(int(i)**2 for i in str(num))
-        if num in past:
+def ishappy(number):
+    included = set()
+    while number != 1:
+        number = sum(int(i)**2 for i in str(number))
+        if number in included:
             return False
-        past.add(num)
+        included.add(number)
     return True
 
 counter = 0
