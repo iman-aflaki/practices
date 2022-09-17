@@ -1,21 +1,18 @@
-import math
-def ishappy(number):
-    included = set()
-    while number != 1:
-        number = sum(int(i)**2 for i in str(number))
-        if number in included:
-            return False
-        included.add(number)
-    return True
+#.....return true if number is prime
+def is_prime(n):
+  for i in range(2,n):
+    if (n%i) == 0:
+      return False
+  return True
 
-counter = 0
-number = 1
-list = []
-while counter <= 20:
-    if ishappy(number):
-        list.append(number)
-        counter += 1
-        number += 1
-    else:
-        number += 1
-print(list)
+exit_or_not = ''
+while exit_or_not != 'y':
+    in_num = int(input("enter any even number ..."))
+    for index in range(1,int((in_num)/2)+1):
+        if is_prime(index):
+            sep = in_num - index
+            if is_prime(sep):
+                print("%d + %d = %d"%(index,sep,in_num))
+    exit_or_not = input("exite? y/n")
+    if exit_or_not == 'y':
+        break
